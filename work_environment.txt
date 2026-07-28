@@ -1,0 +1,6 @@
+1. config.py -----------> Sets configuration, vocabulary, and thresholds
+2. data_processor.py ---> Extracts 3D mesh points & normalizes lip motion
+3. collect_data.py -----> Records video clips & creates features.npy & labels.npy
+4. model.py ------------> PyTorch TCN-BiGRU Network Architecture
+5. train.py ------------> Trains model and saves lipread_v3_best.pth & lipread_v3.onnx
+6. predict_live.py -----> Runs real-time lip-reading from your webcam

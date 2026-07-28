@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./auto_avsr",
+        "./auto_avsr-main"
+    ]
+}

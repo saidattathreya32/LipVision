@@ -1,0 +1,11 @@
+COMPUTER-VISION-LIP-READING-3.0/
+├── .venv/
+├── config.py             <-- [NEW] Configuration & landmark indices
+├── data_processor.py     <-- [NEW] MediaPipe 3D Landmark Extractor
+├── model.py              <-- [NEW] Lightweight TCN-BiGRU PyTorch Model
+├── train.py              <-- [NEW] Training script + ONNX exporter
+├── demo/
+│   └── predict_live.py   <-- [REPLACED] Modern real-time camera script
+├── collected_data/
+├── requirements.txt
+└── README.md
