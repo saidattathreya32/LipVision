@@ -1,41 +1,44 @@
+Markdown
 # 👄 LipRead-3.0
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c) <!-- Change to TensorFlow if applicable -->
-![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-**LipRead-3.0** is an advanced Visual Speech Recognition (VSR) system designed to decode speech directly from lip movements in video feeds. This repository contains the latest iteration of the model, featuring improved accuracy, a refined neural network architecture, and optimized data processing pipelines.
+**LipRead-3.0** is an advanced Visual Speech Recognition (VSR) system designed to decode speech directly from lip movements in video feeds. This repository contains the proprietary version 3.0 model, featuring optimized data processing pipelines and a refined neural network architecture for high-accuracy lip-reading.
 
 ---
 
 ## ✨ Key Features
 
-*   **Robust Face & Landmark Detection:** Accurately isolates the mouth region using [MediaPipe / Dlib / MTCNN].
-*   **Spatiotemporal Deep Learning Model:** Utilizes a [e.g., 3D-CNN + Bi-GRU / LipNet architecture] to capture both spatial features and temporal sequences.
-*   **CTC Loss Integration:** Employs Connectionist Temporal Classification (CTC) for alignment-free sequence-to-sequence learning.
-*   **Real-time Inference:** Capable of processing video files or live webcam feeds with minimal latency.
+*   **Robust Face & Landmark Detection:** Accurately isolates and crops the mouth region from video frames.
+*   **Spatiotemporal Deep Learning:** Captures both the spatial features of the lips and the temporal sequence of movements over time.
+*   **Real-time & Video Inference:** Capable of processing pre-recorded video files or live webcam feeds.
+*   **End-to-End Pipeline:** Includes complete scripts for data preprocessing, model training, and inference.
 
 ## 🛠️ Tech Stack
 
 *   **Language:** Python 3.x
-*   **Deep Learning:** [PyTorch / TensorFlow / Keras]
-*   **Computer Vision:** OpenCV
-*   **Face Tracking:** [MediaPipe / Dlib]
+*   **Deep Learning:** [PyTorch / TensorFlow] *(Edit this to match your code)*
+*   **Computer Vision:** OpenCV, [MediaPipe / Dlib]
 *   **Data Processing:** NumPy, Pandas
 
-## 📂 Dataset
+---
 
-This model was trained on the **[GRID Corpus / LRW (Lip Reading in the Wild) / Custom Dataset]**. 
-*   **Classes:** [e.g., 500 target words or character-level predictions]
-*   **Preprocessing:** Videos were standardized to `[e.g., 75 frames]`, converted to grayscale, and cropped to a `[e.g., 50x100]` pixel bounding box around the lips.
+## 📂 Dataset & Preprocessing
+
+*   **Dataset Used:** [Insert Dataset Name, e.g., GRID Corpus or Custom Dataset]
+*   **Preprocessing Pipeline:** 
+    *   Extracts frames from video input.
+    *   Detects facial landmarks and isolates the bounding box around the lips.
+    *   Standardizes frames to [e.g., 50x100 pixels], converts to grayscale, and normalizes pixel values.
+    *   Packs frames into sequential batches for temporal sequence training.
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-Ensure you have Python 3.8+ installed. It is highly recommended to use a virtual environment.
+Ensure you have Python 3.8+ installed. It is highly recommended to run this project inside a virtual environment.
 
 ### Installation
 
@@ -43,3 +46,47 @@ Ensure you have Python 3.8+ installed. It is highly recommended to use a virtual
    ```bash
    git clone [https://github.com/saidattathreya32/LipRead-3.0.git](https://github.com/saidattathreya32/LipRead-3.0.git)
    cd LipRead-3.0
+Install dependencies:
+
+Bash
+pip install -r requirements.txt
+Model Weights:
+Ensure the pre-trained weights file (e.g., lipread_v3.weights) is placed in the models/ directory before running inference.
+
+💻 Usage
+1. Inference on a Video File
+To run the lip-reading model on an existing video:
+
+Bash
+python main.py --mode predict --video path/to/video.mp4
+2. Live Webcam Inference
+To test the model in real-time using your webcam:
+
+Bash
+python main.py --mode live
+3. Training the Model
+To train or fine-tune the model on your own dataset:
+
+Bash
+python train.py --data_dir ./dataset/ --epochs 50 --batch_size 16
+
+📊 Performance Metrics
+Word Error Rate (WER): [Insert %]
+
+Validation Accuracy: [Insert %]
+
+Inference Speed: [Insert FPS] frames per second
+
+🧠 Acknowledgments
+Core logic and architecture developed independently.
+
+AI assistance provided by Google Gemini for code structuring and documentation refinement.
+
+🔒 Copyright and Ownership
+© 2026 Sai Dattathreya. All Rights Reserved.
+
+This repository and its contents are the private intellectual property of the author.
+
+No license is granted for use, modification, distribution, or reproduction of this code.
+
+This code may not be copied or used in any commercial or open-source projects without explicit written permission from the author.
